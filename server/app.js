@@ -31,7 +31,7 @@ function activateApp() {
 
     // parse application/json
     app.use(bodyParser.json());
-
+    app.use(express.static(path.join(__dirname,'../dist')));
     //To search a planet
     app.get('/api/coins', coinsController.getCoins);
     //To get next search results
@@ -40,8 +40,13 @@ function activateApp() {
     app.post('/api/make-payment', paymentController.handlePayment);
     //Set paths
 
+    app.get('/*', function (req, res) {
+
+        res.sendFile(path.join(__dirname,'../dist/index.html'));
+    });
+    console.log(__dirname);
     //Start server to listen on port
     app.listen(port, function () {
-        console.log('App server started',port);
+        console.log('App server started', port);
     })
 }
