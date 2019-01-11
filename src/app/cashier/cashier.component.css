@@ -1,0 +1,8 @@
+.container{
+    width:800px;
+    margin: auto;
+}
+
+.container .cashier-text{
+    margin: 10px 0;
+}

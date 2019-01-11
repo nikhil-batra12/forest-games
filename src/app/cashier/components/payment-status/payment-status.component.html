@@ -1,0 +1,10 @@
+<div class="status-container whiteBg tBold tCntr">
+  <div *ngIf="paymentStatus === 'success'">
+    <div class="greenClr message">Your payment of amount Rs. {{paymentData.amount}} is successful.</div>
+    <button class="btn greenBg csrPtr" [routerLink]="returnState">Add More Cash<i class="fa fa-angle-double-right"></i></button>
+  </div>
+  <div *ngIf="paymentStatus === 'failure'">
+      <div  class="redClr message">{{paymentData.message}}</div>
+      <button class="btn csrPtr redBg" [routerLink]="returnState">Back to Home<i class="fa fa-angle-double-right"></i></button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+	"success": true,
+	"data": {
+		"coins" : [{
+            "value": 2000,
+            "bonus": 1500
+        },{
+            "value": 1000,
+            "bonus": 1000
+        },{
+            "value": 500,
+            "bonus": 500
+        }]
+	}
+}

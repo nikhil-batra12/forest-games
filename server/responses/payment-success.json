@@ -1,0 +1,7 @@
+{
+    "success": true,
+    "data": {
+        "orderId": "JG123",
+        "amount": "1000"
+    }
+}

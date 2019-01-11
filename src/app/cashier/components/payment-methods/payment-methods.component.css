@@ -1,0 +1,35 @@
+#payment-method-container{
+    overflow: hidden;
+
+}
+
+/* Navbar Styles */
+#payment-method-container .sidenav {
+    height: 100%;
+    width: 160px;
+    top: 0;
+    left: 0;
+    border: 1px solid #D2D2D2;
+} 
+#payment-method-container .sidenav .nav-item {
+    padding: 6px 8px 6px 16px;
+    font-size: 25px;
+    border-bottom: 1px solid #D2D2D2;
+}
+#payment-method-container .nav-item.active .side-arrow{
+    transform: rotate(45deg);
+    height: 15px;
+    width: 15px;
+    right: -8px;
+    top: 10px;
+}
+
+/* Right Section Styles */
+#payment-method-container .right-section{
+    width: 600px;
+    padding-left: 50px;
+}
+  
+.marTop10{
+    margin-top: 10px;
+}

@@ -1,0 +1,8 @@
+<div id="toast-container" class="toast-top-center" *ngIf="message?.content">
+  <div class="toast whiteClr" [ngClass]="{'toast-info': message.type=='info', 'toast-error': message.type=='error', 'toast-success': message.type=='success'}" >
+    <div class="toast-message dspInlBlk">
+      <i class="mg fnlgrp"></i> <span>{{message.content}}</span>
+    </div>
+    <a class="toast-close-button fltRgt csrPtr" (click)="dismissMessage()">×</a>
+  </div>
+</div>

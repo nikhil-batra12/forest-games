@@ -1,0 +1,58 @@
+/* Coin box styles */
+.coin-box{
+    margin: 10px;  
+    height: 120px;
+    width: 120px;
+    vertical-align: top;
+}
+
+.coin-box .radio{
+    bottom: 10px;
+    margin: 0;
+    height: 23px;
+    width: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coin-box .bonus-money-container{
+    background-color: gold;
+    width: 80px;
+    margin: 0 auto 10px auto;
+    padding: 5px 0;
+}
+
+.coin-box .custom-coin-label{
+    height: 60px;
+}
+
+.coin-box .coin-value{
+    font-size: 24px;
+}
+
+.coin-box .bonus-money-container .bonus-label{
+    font-size: 13px;
+}
+
+.coin-box .bonus-money-container .bonus-amount{
+    font-size: 16px;
+}
+
+.coin-box .amount-input{
+    width: 80px;
+    font-size: 12px;
+    border-radius: 3px;
+    margin-left: 4px;
+}
+/* Promocode Styles */
+.promo-button-container{
+    margin: 10px;
+}
+
+.promo-button-container .promo{
+    margin-right: 10px;
+ }
+
+ .form-group .form-input{
+     width: 60%;
+ }

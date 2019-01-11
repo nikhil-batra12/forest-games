@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "data": {
+        "banks": [
+            {
+                "bankName": "ICICI Bank",
+                "bankCode": "ICICI",
+                "isPopular": true
+            },
+            {
+                "bankName": "State Bank of India",
+                "bankCode": "SBI",
+                "isPopular": true
+            },
+            {
+                "bankName": "Axis Bank",
+                "bankCode": "Axis",
+                "isPopular": true
+            },
+            {
+                "bankName": "Punjab National Bank",
+                "bankCode": "PNB",
+                "isPopular": false
+            },
+            {
+                "bankName": "Andhra Bank",
+                "bankCode": "ANDB",
+                "isPopular": false
+            },
+            {
+                "bankName": "Indian Overseas Bank",
+                "bankCode": "IOB",
+                "isPopular": false
+            }
+        ]
+    }
+}

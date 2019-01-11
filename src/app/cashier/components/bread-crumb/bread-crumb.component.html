@@ -1,0 +1,10 @@
+<div class="breadcrumb-container redClr">
+  <div class="dspInlBlk breadcrumb" [ngClass]="{'step-completed csrPtr': breadcrumb.completed, 'noUnderline': allStepsCompleted}" *ngFor="let breadcrumb of breadCrumbs" [routerLink]="breadcrumb.link">
+    <span class="breadcrumb-icon" [ngClass]="breadcrumb.icon"></span>
+    <span>{{breadcrumb.number}}</span>
+    <span> {{breadcrumb.value}}</span>
+  </div>
+  <div class="amount dspInlBlk fltRgt" *ngIf="amount">
+    Amount: <span class="greenClr">Rs. {{amount}}</span>
+  </div>
+</div>

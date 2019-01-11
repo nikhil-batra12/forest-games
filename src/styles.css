@@ -1,0 +1,130 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+
+/* display and visibility */
+.dspBlk{
+    display: block;
+}
+.dspInlBlk{
+    display: inline-block !important;
+}
+.dspTbl{
+    display: table;
+}
+.dspTblCl{
+    display: table-cell;
+}
+.noShow{
+    display: none;
+}
+.invisible{
+    visibility: hidden;
+}
+
+/* Colors and backgrounds */
+.whiteBg{
+    background-color: white;
+}
+.greyBg{
+    background-color: #F7F7F7;
+}
+.greyBorder{
+    border: 1px solid #EDEDEE;
+}
+.redBg{
+    background-color: #700000 !important;
+}
+.redClr{
+    color: #761F35;
+}
+.whiteClr{
+    color: white;
+}
+.greyClr{
+    color: grey
+}
+.greenBg{
+    background-color: green;
+}
+.greenClr{
+    color: green;
+}
+
+/* Custom button */
+.btn{
+    height: 35px;
+    width: 120px;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+.btn i{
+    padding-left: 5px;
+}
+
+
+.pad10{
+    padding: 10px;
+}
+
+.clearfix:after {
+    content: " "; 
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+
+ /* Positions */
+ .posRel{
+     position: relative;
+ }
+ .posAbs{
+     position: absolute;
+ }
+
+ /* Text align and decorations */
+ .tCntr{
+     text-align: center;
+ }
+ .tBold{
+     font-weight: bold;
+ }
+ .ft20{
+    font-size: 20px;
+}
+
+/* Float */
+ .fltRgt{
+     float: right;
+ }
+ .fltLft{
+     float: left;
+ }
+
+/* Other styles */
+ .csrPtr{
+     cursor: pointer;
+ }
+ .vTop{
+     vertical-align: top;
+ }
+
+ /* form controls */
+ .form-group>label{
+    max-width: 100%;
+    margin-bottom: 4px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.form-group .form-input{
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: #404040;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+}

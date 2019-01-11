@@ -1,0 +1,18 @@
+#toast-container{
+    width: 800px;
+    margin: auto;
+}
+
+#toast-container .toast{
+    padding: 5px 10px;
+}
+
+#toast-container .toast.toast-info{
+    background-color: #ed9b59;
+}
+#toast-container .toast.toast-error{
+    background-color: #ed5959;
+}
+#toast-container .toast.toast-success{
+    background-color: #26ad81;
+}

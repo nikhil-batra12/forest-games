@@ -1,0 +1,35 @@
+<div class="card-container">
+  <!-- <div class="error" [ngClass]="{'invisible': !showFormErrors}">
+    *Please provide valid details
+  </div> -->
+  <form [formGroup]="newCardForm" autocomplete="off">
+    <div class="form-group">
+      <label class="dspInlBlk">Enter {{cardType}} Card Number</label>
+      <input type="text" id="cardNo" class="form-input dspBlk" placeholder="Enter 16 digit Card Number without spaces" formControlName="cardNo" maxlength="16">
+    </div>
+    <div class="form-group dspInlBlk width30 marRgt5">
+      <label class="dspInlBlk">Expiry Month</label>
+      <select formControlName="expiryMonth" class="form-input dspInlBlk whiteBg">
+        <option [ngValue]="null" disabled selected>MM</option>
+        <option *ngFor="let month of months">{{month}}</option>
+      </select>
+    </div>
+
+    <div class="form-group dspInlBlk width30 marRgt5">
+      <label class="dspInlBlk">Expiry Year</label>
+      <select formControlName="expiryYear" class="form-input dspInlBlk whiteBg">
+        <option [ngValue]="null" disabled selected>YY</option>
+        <option *ngFor="let year of years">{{year}}</option>
+      </select>
+    </div>
+
+    <div class="form-group dspInlBlk width30">
+      <label class="dspInlBlk">CVV</label>
+      <input type="password" class="form-input dspInlBlk" placeholder="CVV" formControlName="cvv" maxlength="3">
+    </div>
+
+    <div class="button-container fltRgt">
+      <button class="btn greenBg csrPtr" type="submit" (click)="proceedToPayment()">Proceed to Pay<i class="fa fa-angle-double-right"></i></button>
+    </div>
+  </form>
+</div>

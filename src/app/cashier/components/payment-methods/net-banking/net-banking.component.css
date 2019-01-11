@@ -1,0 +1,47 @@
+.netbanking-container .popular-banks{
+    margin: 5px 1% 5px 0;
+    width: 30%;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+.netbanking-container .popular-banks .radio{
+    float: left;
+}
+.netbanking-container .popular-banks div{
+    float: left;
+    width: 80%;
+}
+.netbanking-container .bank-selector{
+    padding: 10px;
+    margin: 10px;
+    border:1px solid  #F5F5F5;
+}
+.netbanking-container .account-info{
+    padding-left: 20px;
+}
+.netbanking-container .form-group .bank-label{
+    max-width: 100%;
+    margin-bottom: 4px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.netbanking-container .form-group .form-input{
+    width: 60%;
+}
+
+.netbanking-container .account-info-form{
+    margin-top: 20px;
+}
+
+.netbanking-container .button-container{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.netbanking-container .button-container .btn{
+    width: 150px;
+}
+
+
+

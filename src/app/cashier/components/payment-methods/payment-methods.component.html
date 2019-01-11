@@ -1,0 +1,14 @@
+<div id="payment-method-container" class="posRel whiteBg greyBorder dspTbl">
+  <div class="sidenav Vtop greyBg dspTblCl">
+    <a class="nav-item dspBlk csrPtr posRel" [ngClass]="{'redBg whiteClr active': activePaymentMethod == method.code}" *ngFor="let method of paymentMethods" (click)="changePaymentMethod(method.code)">
+      <div class="side-arrow dspInlBlk redBg posAbs"></div>
+      {{method.name}}</a>
+  </div>
+  <div class="right-section dspTblCl vTop" [ngSwitch]="activePaymentMethod">
+    <app-net-banking *ngSwitchCase="'nb'"></app-net-banking>
+    <app-banking-cards [cardType]="'Credit'" *ngSwitchCase="'cc'"></app-banking-cards>
+    <app-banking-cards [cardType]="'Debit'" *ngSwitchCase="'dc'"></app-banking-cards>
+    <div class="marTop10" *ngSwitchCase="'wallet'">This feature is under development. Please select any other payment option.</div>
+    <div class="marTop10" *ngSwitchCase="'cac'">This feature is under development. Please select any other payment option.</div>
+  </div>
+</div>

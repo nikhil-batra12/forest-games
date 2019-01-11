@@ -1,0 +1,29 @@
+.breadcrumb-container{
+    height: 30px;
+}
+.breadcrumb-container .breadcrumb{
+    margin-right: 10px;
+}
+.breadcrumb-container .breadcrumb.step-completed{
+    color: blue;
+    text-decoration: underline;
+}
+.breadcrumb-container .breadcrumb .breadcrumb-icon{
+    padding: 0 10px;
+}
+.breadcrumb-container .amount span{
+    font-size: 18px;
+}
+
+.breadcrumb-container .breadcrumb.step-completed .breadcrumb-icon{
+    color: white;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 50%;
+    padding: 1px;
+    margin-right: 5px;
+}
+.noUnderline{
+    text-decoration: none !important;
+    cursor: default !important;
+}

@@ -1,0 +1,45 @@
+<div class="netbanking-container">
+  <ng-container *ngIf="banks && banks.length">
+    <!-- <div class="error" [ngClass]="{'invisible': !showFormErrors}">
+      *Please provide valid details
+    </div> -->
+    <div class="bank-selector">
+      <div class="form-group">
+        <div class="bank-label">Select Bank</div>
+        <ng-container *ngFor="let bank of popularBanks">
+          <label class="dspInlBlk popular-banks dspInlBlk posRel csrPtr">
+            <input class="radio csrPtr" type="radio" [(ngModel)]="bankCode" name="bankCode" [value]="bank.bankCode" />
+            <div class="amount">{{bank.bankName}}</div>
+          </label>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label class="dspBlk">or Select other Bank</label>
+        <select class='form-input dspInlBlk whiteBg' [(ngModel)]="bankCode" name="bankCode">
+          <option [ngValue]="undefined" disabled selected> Select Bank </option>
+          <option *ngFor="let bank of banks" [value]="bank.bankCode">{{bank.bankName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="account-info">
+      <form class="account-info-form" [formGroup]="netBankingForm" novalidate *ngIf="banks.length">
+        <div class="form-group">
+          <label class="dspInlBlk">Enter Acount Number</label>
+          <input type="text" class="form-input" placeholder="Enter Account Number" formControlName="accountId" maxlength="10">
+        </div>
+        <div class="form-group">
+          <label class="dspInlBlk">Enter Routing Id</label>
+          <input type="text" class="form-input" placeholder="Enter Routing Id" formControlName="routingId" maxlength="9">
+        </div>
+        <div class="button-container fltRgt">
+          <button class="btn greenBg csrPtr" type="submit" (click)="proceedToPayment()">Proceed to Pay
+            <i class="fa fa-angle-double-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+  <div *ngIf="!banks.length">
+    Net Banking has temporarily been disabled. Please try again later and check out with Credit Card or ​Debit Card t​o continue.
+  </div>
+</div>
