@@ -48,6 +48,7 @@ export class NetBankingComponent implements OnInit {
       });
     } else {
       this.notificationService.displayInfo({ content: 'Please enter valid bank details.' });
+      this.showLoader = false;
     }
   }
 

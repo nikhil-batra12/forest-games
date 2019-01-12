@@ -31,6 +31,7 @@ export class BankingCardsComponent implements OnInit {
   }
 
   proceedToPayment() {
+    this.showLoader = true;
     this.notificationService.removeMessage();
     if (this.newCardForm.valid) {
       const reqObj = {
@@ -45,6 +46,7 @@ export class BankingCardsComponent implements OnInit {
       });
     } else {
       this.notificationService.displayInfo({content: 'Please enter valid card details.'});
+      this.showLoader = false;
     }
   }
 

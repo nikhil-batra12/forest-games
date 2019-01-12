@@ -1,29 +1,35 @@
 <div class="whiteBg greyBorder posRel">
   <ng-container *ngIf="coinsData">
-      <label class="coin-box redBg dspInlBlk posRel tCntr whiteClr csrPtr" *ngFor="let coin of coinsData" [routerLink]="['../', coin.id]">
-        <ng-container>
-          <div class="bonus-money-container redClr" [ngClass]="{'invisible' : !coin.bonus, 'noShow': coin.isCustom}">
-            <div class="bonus-label">Bonus</div>
-            <div class="bonus-amount tBold">Rs. {{coin.bonus}}</div>
-          </div>
-          <div class="custom-coin-label pad10" *ngIf="coin.isCustom">
-            <span>Enter Amount</span>
-          </div>
-          <span>Rs.</span>
-          <div class="coin-value tBold dspInlBlk whiteClr">{{coin.value}}</div>
-          <input [(ngModel)]="userSelectedCoin" class="radio posAbs dspInlBlk csrPtr" type="radio" name="radio" [checked]="coin.id == activatedCoinId" [value]="coin" />
-          <input *ngIf="coin.isCustom" type="text" class="amount-input dspInlBlk" [(ngModel)]="customAmount" placeholder="Enter Amount" maxlength="5">
-        </ng-container>
-      </label>
-      <div class="promo-button-container fltRgt form-group">
-        <label class="promo">
-          <div>Promocode(Optional)</div>
-          <input type="text" [(ngModel)]="promocode" maxlength="10" class="form-input dspInlBlk">
-        </label>
-        <button class="btn greenBg whiteClr csrPtr" (click)="goToPayment()">Continue<i class="fa fa-angle-double-right"></i></button>
-      </div>
-      <div class="clearfix"></div>
-      <div>{{amount | json}}</div>
+    <label class="coin-box redBg dspInlBlk posRel tCntr whiteClr csrPtr" *ngFor="let coin of coinsData" [routerLink]="['../', coin.id]">
+      <ng-container>
+        <div class="bonus-money-container redClr" [ngClass]="{'invisible' : !coin.bonus, 'noShow': coin.isCustom}">
+          <div class="bonus-label">Bonus</div>
+          <div class="bonus-amount tBold">Rs. {{coin.bonus}}</div>
+        </div>
+        <div class="custom-coin-label pad10" *ngIf="coin.isCustom">
+          <span>Enter Amount</span>
+        </div>
+        <span>Rs.</span>
+        <div class="coin-value tBold dspInlBlk whiteClr">{{coin.value}}</div>
+        <input [(ngModel)]="userSelectedCoin" class="radio posAbs dspInlBlk csrPtr" type="radio" name="radio" [checked]="coin.id == activatedCoinId"
+          [value]="coin" />
+        <input *ngIf="coin.isCustom" type="text" class="amount-input dspInlBlk" [(ngModel)]="customAmount" placeholder="Enter Amount"
+          maxlength="5">
+      </ng-container>
+    </label>
+    <div class="promo-button-container fltRgt form-group">
+      <label class="dspBlk">Promocode(Optional)</label>
+      <select class='form-input dspInlBlk whiteBg' [(ngModel)]="promocode" name="bankCode">
+        <option [ngValue]="undefined" disabled selected> Select Promo </option>
+        <option value="promo1">Promo 1</option>
+        <option value="promo2">Promo 2</option>
+      </select>
+
+      <button class="btn greenBg whiteClr csrPtr" (click)="goToPayment()">Continue
+        <i class="fa fa-angle-double-right"></i>
+      </button>
+    </div>
+    <div class="clearfix"></div>
   </ng-container>
   <app-loader *ngIf="showLoader"></app-loader>
 </div>
