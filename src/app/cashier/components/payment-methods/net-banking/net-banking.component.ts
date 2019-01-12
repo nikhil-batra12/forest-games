@@ -15,7 +15,7 @@ export class NetBankingComponent implements OnInit {
   popularBanks = [];
   netBankingForm: FormGroup;
   bankCode;
-  showFormErrors = false;
+  showLoader = true;
   constructor(
     private cashierService: CashierService,
     private orderCoinsService: OrderCoinsService,
@@ -28,10 +28,12 @@ export class NetBankingComponent implements OnInit {
     this.cashierService.getPaymentOptions().subscribe(response => {
       this.banks = response.data.banks;
       this.popularBanks = this.banks.filter(bank => bank.isPopular);
+      this.showLoader = false;
     });
   }
 
   proceedToPayment() {
+    this.showLoader = true;
     this.notificationService.removeMessage();
     if (this.netBankingForm.valid) {
       const reqObj = {
@@ -39,16 +41,20 @@ export class NetBankingComponent implements OnInit {
         details: Object.assign({}, { bankCode: this.bankCode }, this.netBankingForm.value)
       };
       this.orderCoinsService.setPayment(reqObj);
-      this.cashierService.makePayment(this.orderCoinsService.orderRequestObj);
+      this.cashierService.makePayment(this.orderCoinsService.orderRequestObj).subscribe(response => {
+        if (response === 'failure') {
+          this.showLoader = false;
+        }
+      });
     } else {
-      this.notificationService.displayInfo({content: 'Please enter valid bank details.'});
+      this.notificationService.displayInfo({ content: 'Please enter valid bank details.' });
     }
   }
 
   createForm() {
     this.netBankingForm = this.fb.group({
-      accountId: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      routingId: [null, [Validators.required]]
+      accountId: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]{10}')]],
+      routingId: [null, [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]{9}')]]
     });
   }
 

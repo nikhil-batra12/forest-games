@@ -2,7 +2,7 @@
   <!-- <div class="error" [ngClass]="{'invisible': !showFormErrors}">
     *Please provide valid details
   </div> -->
-  <form [formGroup]="newCardForm" autocomplete="off">
+  <form [formGroup]="newCardForm" autocomplete="off" *ngIf="!showLoader">
     <div class="form-group">
       <label class="dspInlBlk">Enter {{cardType}} Card Number</label>
       <input type="text" id="cardNo" class="form-input dspBlk" placeholder="Enter 16 digit Card Number without spaces" formControlName="cardNo" maxlength="16">
@@ -32,4 +32,5 @@
       <button class="btn greenBg csrPtr" type="submit" (click)="proceedToPayment()">Proceed to Pay<i class="fa fa-angle-double-right"></i></button>
     </div>
   </form>
+  <app-loader *ngIf="showLoader"></app-loader>
 </div>

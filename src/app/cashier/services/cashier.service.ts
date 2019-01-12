@@ -6,6 +6,7 @@ import { CommonUtilsService } from './../../core/services/common-utils.service';
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -54,30 +55,36 @@ export class CashierService {
   }
 
   makePayment(data) {
-    this.postProceedToPayment(data).subscribe(response => {
-      this.orderCoinsService.clearPreviousOrder();
-      this.routeDataSharingService.setRouteData(
-        {
-          routeName: 'payment-status',
-          routeData: {
-            status: 'success',
-            response: response.data
-          }
-        });
-      this.route.navigate(['cashier', 'payment-status', 'success']);
-    }, error => {
-      if (error.code === 'INVINP') {
-        this.notificationService.displayError({content: error.data.message});
-      } else {
-        this.routeDataSharingService.setRouteData({
-          routeName: 'payment-status',
-          routeData: {
-            status: 'failure',
-            response: error.data
-          }
-        });
-        this.route.navigate(['cashier', 'payment-status', 'failure']);
-      }
+    return Observable.create((observer) => {
+      this.postProceedToPayment(data).subscribe(response => {
+        this.orderCoinsService.clearPreviousOrder();
+        this.routeDataSharingService.setRouteData(
+          {
+            routeName: 'payment-status',
+            routeData: {
+              status: 'success',
+              response: response.data
+            }
+          });
+          observer.next('success');
+          observer.complete();
+        this.route.navigate(['cashier', 'payment-status', 'success']);
+      }, error => {
+        if (error.code === 'INVINP') {
+          this.notificationService.displayError({ content: error.data.message });
+          observer.next('failure');
+        } else {
+          this.routeDataSharingService.setRouteData({
+            routeName: 'payment-status',
+            routeData: {
+              status: 'failure',
+              response: error.data
+            }
+          });
+          observer.complete();
+          this.route.navigate(['cashier', 'payment-status', 'failure']);
+        }
+      });
     });
   }
 

@@ -14,6 +14,7 @@ export class BankingCardsComponent implements OnInit {
   newCardForm: FormGroup;
   months = [];
   years = [];
+  showLoader = true;
   constructor(
     private cashierService: CashierService,
     private fb: FormBuilder,
@@ -26,6 +27,7 @@ export class BankingCardsComponent implements OnInit {
     this.months = expiry.months;
     this.years = expiry.years;
     this.createForm();
+    this.showLoader = false;
   }
 
   proceedToPayment() {
@@ -36,7 +38,11 @@ export class BankingCardsComponent implements OnInit {
         details: Object.assign({}, this.newCardForm.value)
       };
       this.orderCoinsService.setPayment(reqObj);
-      this.cashierService.makePayment(this.orderCoinsService.orderRequestObj);
+      this.cashierService.makePayment(this.orderCoinsService.orderRequestObj).subscribe(response => {
+        if (response === 'failure') {
+          this.showLoader = false;
+        }
+      });
     } else {
       this.notificationService.displayInfo({content: 'Please enter valid card details.'});
     }

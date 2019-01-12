@@ -1,5 +1,5 @@
 <div class="netbanking-container">
-  <ng-container *ngIf="banks && banks.length">
+  <ng-container *ngIf="banks && banks.length &&!showLoader">
     <!-- <div class="error" [ngClass]="{'invisible': !showFormErrors}">
       *Please provide valid details
     </div> -->
@@ -39,7 +39,8 @@
       </form>
     </div>
   </ng-container>
-  <div *ngIf="!banks.length">
+  <div *ngIf="!banks.length && !showLoader">
     Net Banking has temporarily been disabled. Please try again later and check out with Credit Card or ​Debit Card t​o continue.
   </div>
+  <app-loader *ngIf="showLoader"></app-loader>
 </div>

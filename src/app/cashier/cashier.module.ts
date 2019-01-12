@@ -1,3 +1,4 @@
+import { CoreModule } from './../core/core.module';
 import { CashierRoutingModule } from './cashier-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     CashierRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    CoreModule
   ],
   declarations: [
     PaymentPackageComponent,

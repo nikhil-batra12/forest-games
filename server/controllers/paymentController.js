@@ -41,7 +41,7 @@ function ValidatePaymentMethod(paymentObj){
 function validateBankingDetails(bankDetails){
     if(!bankDetails.bankCode || !bankDetails.accountId || !bankDetails.routingId){
         return false;
-    } else if( bankDetails.accountId !== '1234567890' && bankDetails.routingId != '987654321'){
+    } else if( bankDetails.accountId !== '1234567890' || bankDetails.routingId !== '987654321'){
         return false;
     }
     return true;

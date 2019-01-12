@@ -18,6 +18,7 @@ export class PaymentPackageComponent implements OnInit {
   activatedCoinId = null;
   customAmount = null;
   promocode = null;
+  showLoader = true;
   constructor(
     private cashierService: CashierService,
     private orderCoinsService: OrderCoinsService,
@@ -43,10 +44,12 @@ export class PaymentPackageComponent implements OnInit {
         icon: 'fa fa-tags',
         link: 'payment-package/' + this.coinsData[0].id
       }]);
+      this.showLoader = false;
     });
   }
 
   goToPayment() {
+    this.showLoader = true;
     const reqObj = {
       coinId: this.userSelectedCoin.id,
       amount: this.userSelectedCoin.value,
@@ -59,9 +62,9 @@ export class PaymentPackageComponent implements OnInit {
       const patt = /^\d+$/;
       reqObj['amount'] = this.customAmount;
       if (!patt.test(this.customAmount)) {
-        this.notificationService.displayInfo({content: 'Please enter numerical amount only.'});
+        this.notificationService.displayInfo({ content: 'Please enter numerical amount only.' });
         return;
-      } else{
+      } else {
         this.notificationService.removeMessage();
       }
     }

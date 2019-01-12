@@ -8,7 +8,7 @@ var coinsController = require('./controllers/coinsController');
 var paymentController = require('./controllers/paymentController');
 
 /* Set port for local/heroku environment*/
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 
 activateApp();
