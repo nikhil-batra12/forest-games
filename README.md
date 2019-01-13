@@ -13,7 +13,7 @@ This app is used for selecting coin of suitable amount and making payment via so
 - In the root folder, run `npm install`. This should create node_modules folder in the root folder of app. 
 - Then go to server folder using `cd server` and run `npm install` there. This should fetch the dependencies for the node js server code.
 
-## To setup the app
+## To run the app
 - Open terminal with path set to the root folder of the app.
 - Run `ng serve`, this should start the frontend of the app.
 - In a new terminal tab, go the server folder of the app and run `node app.js` to start the node app.
