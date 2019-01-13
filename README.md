@@ -16,7 +16,7 @@ This app is used for selecting coin of suitable amount and making payment via so
 ## To run the app
 - Open terminal with path set to the root folder of the app.
 - Run `ng serve`, this should start the frontend of the app.
-- In a new terminal tab, go the server folder of the app and run `node app.js` to start the node app.
+- In a new terminal tab, go the `server` folder of the app and run `node app.js` to start the node app.
 - Now go in the browser and type http://localhost:4200, the app will start running.
 
 ## Live demo
